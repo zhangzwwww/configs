@@ -1,6 +1,6 @@
 cd " space and tabs
 set tabstop=4 "number of visual spaces per TAB
-set shiftwidth=4 " indent size
+""set shiftwidth=4 " indent size
 set softtabstop=4 "number of spaces in tab when editing
 
 " ui config
@@ -8,6 +8,7 @@ set number " show line numbers
 set showcmd " show command in bottom bar
 set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu
+set showmatch " show brackets match
 
 " searching
 set incsearch " search as characters are entered
@@ -26,8 +27,25 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" color scheme
 Plug 'liuchengxu/space-vim-dark'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'Valloric/YouCompleteMe'
+
+"deoplete.nvim
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+"golang
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'dgryski/vim-godef'
+
+Plug 'marijnh/tern_for_vim'
+
+"markdown
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 
 call plug#end()
 
@@ -47,3 +65,8 @@ filetype plugin indent on
 colorscheme space-vim-dark
 hi Comment guifg=#5C6370 ctermfg=59
 
+"close nerdtree when close file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"key bind
+map <F8> :NERDTreeFind<CR>

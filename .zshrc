@@ -26,6 +26,8 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
+ZSH_DISABLE_COMPFIX="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
@@ -117,5 +119,6 @@ export PATH="$PATH":/usr/local/mysql/bin
 # alias
 alias proxy=https_proxy=http://127.0.0.1:1087
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias vim='mvim -v'
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
