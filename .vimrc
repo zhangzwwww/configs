@@ -26,7 +26,7 @@ let python_highlight_all=1
 au Filetype python set tabstop=4
 au Filetype python set softtabstop=4
 au Filetype python set shiftwidth=4
-au Filetype python set textwidth=79
+au Filetype python set textwidth=120
 au Filetype python set expandtab
 au Filetype python set autoindent
 au Filetype python set fileformat=unix
@@ -36,12 +36,21 @@ autocmd Filetype python set foldlevel=99
 "end python config
 
 "auto exec
-map<F6> :call CompileRunGcc()<CR>
+map<Leader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 		exec "w"
 		if &filetype == 'python'
 				exec "!clear"
 				exec "!time python3 %"
+		endif
+endfunc
+
+map<Leader>R :call DebugRun()<CR>
+func! DebugRun()
+		exec "w"
+		if &filetype == 'python'
+				exec "!clear"
+				exec "!time python3 -m pdb %"
 		endif
 endfunc
 
@@ -87,6 +96,12 @@ Plug 'Chiel92/vim-autoformat'
 
 "parentheses
 Plug 'kien/rainbow_parentheses.vim'
+
+"vdebug
+Plug 'vim-vdebug/vdebug'
+
+"highlight
+Plug 'lfv89/vim-interestingwords'
 
 call plug#end()
 
@@ -155,3 +170,6 @@ let g:autoformat_verbosemode=1
 "auto format python files
 "au BufWrite *.py :Autoformat
 
+"Ycm goto
+map gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map gr :YcmCompleter GoToReferences<CR>
