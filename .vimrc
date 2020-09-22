@@ -35,6 +35,13 @@ autocmd Filetype python set foldlevel=99
 
 "end python config
 
+"golang config
+au Filetype go set tabstop=4
+au Filetype go set softtabstop=4
+au Filetype go set shiftwidth=4
+au Filetype go set expandtab
+"end golang config
+
 "auto exec
 map<Leader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -42,6 +49,9 @@ func! CompileRunGcc()
 		if &filetype == 'python'
 				exec "!clear"
 				exec "!time python3 %"
+		elseif &filetype == 'go'
+				exec "!clear"
+				exec "!time go run %"
 		endif
 endfunc
 
@@ -164,7 +174,7 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_right_Window=1
 
 "F10 auto format
-noremap <F10> :Autoformat<CR>:w<CR>
+noremap <leader>f :Autoformat<CR>:w<CR>
 let g:autoformat_verbosemode=1
 
 "auto format python files
