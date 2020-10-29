@@ -87,12 +87,11 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
-"js
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+"python
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 "golang
-Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'fatih/vim-go', {'for':'go', 'tag': '*' }
 Plug 'dgryski/vim-godef'
 
 Plug 'marijnh/tern_for_vim'
@@ -112,6 +111,12 @@ Plug 'vim-vdebug/vdebug'
 
 "highlight
 Plug 'lfv89/vim-interestingwords'
+
+"auto pairs
+Plug 'jiangmiao/auto-pairs'
+
+"LaTeX
+Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 
 call plug#end()
 
@@ -183,3 +188,10 @@ let g:autoformat_verbosemode=1
 "Ycm goto
 map gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map gr :YcmCompleter GoToReferences<CR>
+
+"ycm config file
+let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+
+"LaTeX
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'open -a Preview'
