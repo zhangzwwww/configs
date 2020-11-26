@@ -115,8 +115,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/Library/TeX/texbin:$PATH"
 
 # alias
-alias proxy=https_proxy=http://127.0.0.1:1087
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias proxy=https_proxy=http://127.0.0.1:1087 # change your own proxy port
 alias vim='mvim -v'
 alias python='python3'
 
