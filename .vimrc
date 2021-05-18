@@ -2,6 +2,7 @@ cd " space and tabs
 set tabstop=4 "number of visual spaces per TAB
 ""set shiftwidth=4 " indent size
 set softtabstop=4 "number of spaces in tab when editing
+set shiftwidth=4
 
 " ui config
 set number " show line numbers
@@ -119,6 +120,7 @@ Plug 'jiangmiao/auto-pairs'
 
 "LaTeX
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
+"Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -202,3 +204,9 @@ let g:livepreview_previewer = 'open -a Preview'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+"tags
+set tags=./tags,./TAGS,tags;~,TAGS;~
+
+"python line length
+let g:pymode_options_max_line_length = 120
