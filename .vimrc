@@ -79,7 +79,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'liuchengxu/space-vim-dark'
-Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'Valloric/YouCompleteMe'
 
@@ -96,8 +95,6 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 "golang
 Plug 'fatih/vim-go', {'for':'go', 'tag': '*' }
 Plug 'dgryski/vim-godef'
-
-Plug 'marijnh/tern_for_vim'
 
 "markdown
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -167,14 +164,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-"close nerdtree when close file
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
-
-"key bind
-map <F8> :NERDTreeFind<CR>
 
 " ctags
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
