@@ -56,6 +56,21 @@ ZSH_DISABLE_COMPFIX="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+# ignore those syntax in history
+SAVEHIST=10000
+HISTSIZE=10000
+HISTFILE="${HOME}/.zsh_history"
+HISTORY_IGNORE='([bf]g *|cd ..|l[a,l,s,h,]*|less *|pwd|history|clear)'
+
+function zshaddhistory() {
+  if [[ $1 =~ $HISTORY_IGNORE ]]; then
+	return 1
+  fi
+  # write to usual history location
+  print -sr -- ${1%%$'\n'}
+  return 1
+}
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -113,6 +128,7 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/Library/TeX/texbin:$PATH"
+export PATH=$PATH:$HOME/workspace/flutter/bin
 
 # alias
 alias proxy=https_proxy=http://127.0.0.1:1087 # change your own proxy port
