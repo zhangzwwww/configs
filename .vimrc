@@ -20,6 +20,8 @@ set clipboard=unnamed
 " set default dir
 set autochdir
 
+set wrap
+
 "start python config
 
 "edit
@@ -27,10 +29,10 @@ let python_highlight_all=1
 au Filetype python set tabstop=4
 au Filetype python set softtabstop=4
 au Filetype python set shiftwidth=4
-au Filetype python set textwidth=120
+au Filetype python set textwidth=160
 au Filetype python set expandtab
 au Filetype python set autoindent
-au Filetype python set fileformat=unix
+"au Filetype python set fileformat=unix
 autocmd Filetype python set foldmethod=indent
 autocmd Filetype python set foldlevel=99
 
@@ -94,7 +96,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 "golang
 Plug 'fatih/vim-go', {'for':'go', 'tag': '*' }
-Plug 'dgryski/vim-godef'
+Plug 'dgryski/vim-godef', {'for': 'go'}
 
 "markdown
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -114,6 +116,13 @@ Plug 'lfv89/vim-interestingwords'
 
 "auto pairs
 Plug 'jiangmiao/auto-pairs'
+
+"air-line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"ctags
+Plug 'ludovicchabant/vim-gutentags'
 
 "LaTeX
 Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
@@ -198,4 +207,27 @@ let g:indent_guides_guide_size = 1
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
 "python line length
-let g:pymode_options_max_line_length = 120
+let g:pymode_run = 1
+let g:pymode_options_max_line_length = 160
+let g:pymode_rope_goto_definition_bind = '<C-c>g'
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+
+"start ctags
+
+"signs for root project
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+"tags name
+let g:gutentags_ctags_tagfile = '.tags'
+"tag file location
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+"args
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+"airline
+let g:airline_theme='raven'
