@@ -6,6 +6,7 @@ set shiftwidth=4
 
 " ui config
 set number " show line numbers
+set relativenumber
 set showcmd " show command in bottom bar
 set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu

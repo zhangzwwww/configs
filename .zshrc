@@ -60,7 +60,7 @@ ZSH_DISABLE_COMPFIX="true"
 SAVEHIST=10000
 HISTSIZE=10000
 HISTFILE="${HOME}/.zsh_history"
-HISTORY_IGNORE='([bf]g *|cd ..|l[a,l,s,h,]*|less *|pwd|history|clear)'
+HISTORY_IGNORE='(clear)'
 
 function zshaddhistory() {
   if [[ $1 =~ $HISTORY_IGNORE ]]; then
@@ -129,14 +129,19 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/Library/TeX/texbin:$PATH"
 export PATH=$PATH:$HOME/workspace/flutter/bin
+export PATH=$PATH:$HOME/Developer/gradle-7.2/bin
 
 # alias
 alias proxy=https_proxy=http://127.0.0.1:1087 # change your own proxy port
 alias vim='mvim -v'
 alias python='python3'
+alias ls='ls --color=auto'
 
 #brew source
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 export HOMEBREW_NO_AUTO_UPDATE=true
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
