@@ -124,12 +124,6 @@ export GOPATH=$HOME/workspace/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/Library/TeX/texbin:$PATH"
-export PATH=$PATH:$HOME/workspace/flutter/bin
-export PATH=$PATH:$HOME/Developer/gradle-7.2/bin
 
 # alias
 alias proxy=https_proxy=http://127.0.0.1:1087 # change your own proxy port
@@ -144,4 +138,3 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export HOMEBREW_NO_AUTO_UPDATE=true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
