@@ -21,3 +21,4 @@ call plug#end()
 :hi Visual term=reverse cterm=reverse guibg=Grey
 
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
